@@ -27,23 +27,23 @@ Environment variables
   - The password for `MYSQL_USER`. Defaults to a blank password.
 * `BIND_ADDRESS`
   - Default 0.0.0.0
-* LOG_BIN
+* `LOG_BIN`
   - If provided, will become the value of the `log-bin` config variable
-* SERVER_ID
+* `SERVER_ID`
   - Default = 1
-* INNODB_FORCE_RECOVERY
+* `INNODB_FORCE_RECOVERY`
   - Default = 0
-* INNODB_FILE_FORMAT
+* `INNODB_FILE_FORMAT`
   - Default = Barracuda
-* INNODB_FILE_FORMAT_MAX
+* `INNODB_FILE_FORMAT_MAX`
   - Default = Barracuda
-* INNODB_FILE_PER_TABLE
+* `INNODB_FILE_PER_TABLE`
   - Default = 1
-* MAX_ALLOWED_PACKET
+* `MAX_ALLOWED_PACKET`
   - Default = 134217728
-* SYNC_BINLOG
+* `SYNC_BINLOG`
   - Default = 4
-* CONF_*
+* `CONF_*`
   - Any environment variables in the format `CONF_varname=value` will be put in my.cnf as `varname=value`
 
 Ports
@@ -57,4 +57,4 @@ Ports
 Volumes
 -------
 
-* /var/lib/mysql
+* `/var/lib/mysql`

@@ -51,7 +51,6 @@ Ports
 
 * 3306
   - MySQL
-
 * 22
   - SSH
 

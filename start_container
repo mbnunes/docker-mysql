@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+envtpl /etc/mysql/conf.d/my.cnf.tpl
+
 chown -R mysql:mysql /var/lib/mysql
 mysql_install_db --user mysql > /dev/null
 
@@ -8,7 +10,6 @@ MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-""}
 MYSQL_DATABASE=${MYSQL_DATABASE:-""}
 MYSQL_USER=${MYSQL_USER:-""}
 MYSQL_PASSWORD=${MYSQL_PASSWORD:-""}
-MYSQLD_ARGS=${MYSQLD_ARGS:-""}
 
 tfile=`mktemp`
 if [[ ! -f "$tfile" ]]; then
@@ -30,7 +31,7 @@ if [[ $MYSQL_DATABASE != "" ]]; then
     fi
 fi
 
-/usr/sbin/mysqld --bootstrap --verbose=0 $MYSQLD_ARGS < $tfile
+/usr/sbin/mysqld --bootstrap --verbose=0 < $tfile
 rm -f $tfile
 
-exec /usr/sbin/mysqld $MYSQLD_ARGS
+exec supervisord -n

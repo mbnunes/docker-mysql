@@ -1,13 +1,22 @@
-FROM stackbrew/ubuntu:12.04
-MAINTAINER Ben Firshman <ben@orchardup.com>
+FROM        ubuntu:precise
+MAINTAINER  Andreas Jansson <andreas@jansson.me.uk>
 
-RUN apt-get update -qq && apt-get install -y mysql-server-5.5
+RUN         apt-get update
+RUN         apt-get install -y \
+                mysql-server-5.5 \
+                openssh-server \
+                python-pip
 
-ADD my.cnf /etc/mysql/conf.d/my.cnf
-RUN chmod 664 /etc/mysql/conf.d/my.cnf
-ADD run /usr/local/bin/run
-RUN chmod +x /usr/local/bin/run
+RUN         pip install supervisor envtpl
 
-VOLUME ["/var/lib/mysql"]
-EXPOSE 3306
-CMD ["/usr/local/bin/run"]
+RUN         echo 'root:root' | chpasswd
+RUN         mkdir /var/run/sshd
+
+ADD         my.cnf.tpl /etc/mysql/conf.d/my.cnf.tpl
+ADD         supervisord.conf /etc/supervisord.conf
+ADD         start_container /bin/start_container
+RUN         chmod +x /bin/start_container
+
+VOLUME      /var/lib/mysql
+EXPOSE      3306 22
+CMD         /bin/start_container

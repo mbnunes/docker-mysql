@@ -11,7 +11,7 @@ serverurl=unix:///tmp/supervisor.sock
 supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface
 
 [program:mysqld]
-command = /usr/sbin/mysqld
+command = /usr/sbin/mysqld {{ MYSQLD_ARGS | default("") }}
 autorestart = true
 
 [program:sshd]

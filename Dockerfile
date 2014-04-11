@@ -13,7 +13,7 @@ RUN         echo 'root:root' | chpasswd
 RUN         mkdir /var/run/sshd
 
 ADD         my.cnf.tpl /etc/mysql/conf.d/my.cnf.tpl
-ADD         supervisord.conf /etc/supervisord.conf
+ADD         supervisord.conf.tpl /etc/supervisord.conf.tpl
 ADD         start_container /bin/start_container
 RUN         chmod +x /bin/start_container
 

@@ -11,6 +11,7 @@ Includes a bunch of cool features such as:
  - Setting a root password.
  - Creating a user and database.
  - Setting my.cnf variables with environment variables
+ - Passing extra parameters to mysqld
  - Running mysql under supervisor
  - Also running an openssh daemon if you'd ever need to access the container directly. user/pass = root/root
 
@@ -41,12 +42,15 @@ Environment variables
   - Default = 1
 * `MAX_ALLOWED_PACKET`
   - Default = 134217728
-* `SYNC_BINLOG`
-  - Default = 4
 * `MAX_CONNECTIONS`
   - Default = 251
+* `SYNC_BINLOG`
+  - Default = 4
 * `CONF_*`
   - Any environment variables in the format `CONF_varname=value` will be put in my.cnf as `varname=value`
+* `MYSQLD_ARGS`
+  - Extra parameters to pass to the mysqld process on startup
+
 
 Ports
 -----

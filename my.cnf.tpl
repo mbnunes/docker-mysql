@@ -6,10 +6,10 @@ general_log_file       = /var/log/mysql/general.log
 log_error              = /var/log/mysql/error.log
 
 {% if LOG_BIN is defined %}
-log-bin                = {{ LOG_BIN }}
+log_bin                = {{ LOG_BIN }}
 {% endif %}
 
-server-id              = {{ SERVER_ID | default(1) }}
+server_id              = {{ SERVER_ID | default(1) }}
 innodb_force_recovery  = {{ INNODB_FORCE_RECOVERY | default(0) }}
 
 innodb_file_format     = {{ INNODB_FILE_FORMAT | default("Barracuda") }}

@@ -43,6 +43,8 @@ Environment variables
   - Default = 134217728
 * `SYNC_BINLOG`
   - Default = 4
+* `MAX_CONNECTIONS`
+  - Default = 251
 * `CONF_*`
   - Any environment variables in the format `CONF_varname=value` will be put in my.cnf as `varname=value`
 

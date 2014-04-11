@@ -16,6 +16,7 @@ innodb_file_format     = {{ INNODB_FILE_FORMAT | default("Barracuda") }}
 innodb_file_format_max = {{ INNODB_FILE_FORMAT_MAX | default("Barracuda") }}
 innodb_file_per_table  = {{ INNODB_FILE_PER_TABLE | default(1) }}
 max_allowed_packet     = {{ MAX_ALLOWED_PACKET | default(134217728) }}
+max_connections        = {{ MAX_CONNECTIONS | default(251) }}
 sync_binlog            = {{ SYNC_BINLOG | default(4) }}
 
 {% for key, value in environment('CONF_') %}

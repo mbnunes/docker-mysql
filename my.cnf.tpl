@@ -4,6 +4,7 @@ console                = 1
 general_log            = 1
 general_log_file       = /var/log/mysql/general.log
 log_error              = /var/log/mysql/error.log
+lower_case_table_names = {{ LOWER_CASE_TABLE_NAMES | default(1) }} 
 
 {% if LOG_BIN is defined %}
 log_bin                = {{ LOG_BIN }}

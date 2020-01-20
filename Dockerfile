@@ -1,9 +1,9 @@
-FROM        ubuntu:precise
-MAINTAINER  Andreas Jansson <andreas@jansson.me.uk>
+FROM        ubuntu:18.04
+MAINTAINER  Mauricio Nunes <mnunes@vialink.com.br>
 
 RUN         apt-get update
 RUN         apt-get install -y \
-                mysql-server-5.5 \
+                mysql-server-5.7 \
                 openssh-server \
                 python-pip
 
